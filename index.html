@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles and overrides */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Dark slate gray text */
+            line-height: 1.6;
+        }
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0; /* Light gray track */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8; /* Medium gray thumb */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b; /* Darker gray on hover */
+        }
+
+        /* Custom button styles */
+        .btn-primary {
+            @apply bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-1;
+        }
+        .btn-secondary {
+            @apply bg-gray-200 text-gray-800 px-6 py-3 rounded-full shadow-md hover:bg-gray-300 transition duration-300 ease-in-out transform hover:-translate-y-1;
+        }
+        /* Section padding */
+        section {
+            @apply py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto;
+        }
+        /* Card styles */
+        .card {
+            @apply bg-white rounded-xl shadow-lg p-6 transition duration-300 ease-in-out transform hover:scale-105;
+        }
+        /* Project image aspect ratio */
+        .project-image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            overflow: hidden;
+        }
+        .project-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-gray-900 rounded-lg p-2 hover:bg-gray-100 transition duration-300">Your Name</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-100">About</a>
+                <a href="#skills" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-100">Skills</a>
+                <a href="#projects" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-100">Projects</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-100">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg pb-4">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600">Projects</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-24 md:py-32 rounded-b-3xl shadow-xl">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">Hi, I'm <span class="text-yellow-300">Your Name</span></h1>
+            <p class="text-xl sm:text-2xl lg:text-3xl font-light mb-8">A passionate [Your Profession, e.g., Full-Stack Developer] crafting engaging web experiences.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#projects" class="btn-primary inline-block">View My Work</a>
+                <a href="#contact" class="btn-secondary inline-block text-gray-900">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-white rounded-xl shadow-lg my-12">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-8">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <img src="https://placehold.co/300x300/e0f2fe/0c4a6e?text=Your+Photo" alt="Your Photo" class="rounded-full w-48 h-48 object-cover mx-auto shadow-lg border-4 border-blue-200">
+                </div>
+                <div class="md:w-2/3 text-lg text-gray-700 text-left">
+                    <p class="mb-4">
+                        Hello! I'm [Your Name], a [Your Profession] with a knack for building beautiful and functional web applications. My journey into development began [mention a brief origin story, e.g., "several years ago out of a fascination with how digital products come to life"].
+                    </p>
+                    <p class="mb-4">
+                        I specialize in [mention your main expertise, e.g., "front-end development with React and a strong understanding of back-end systems using Node.js and databases like MongoDB/PostgreSQL"]. I thrive on solving complex problems and creating intuitive user experiences.
+                    </p>
+                    <p>
+                        When I'm not coding, you can find me [mention a hobby, e.g., "exploring new hiking trails, experimenting with new recipes, or diving into a good book"]. I'm always eager to learn new technologies and collaborate on exciting projects.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-blue-50 rounded-xl shadow-lg my-12">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-8">My Skills</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Example Skill Cards -->
+                <div class="card flex flex-col items-center p-4">
+                    <img src="https://placehold.co/60x60/ffffff/000000?text=JS" alt="JavaScript Icon" class="mb-3 w-16 h-16 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">JavaScript</h3>
+                </div>
+                <div class="card flex flex-col items-center p-4">
+                    <img src="https://placehold.co/60x60/ffffff/000000?text=React" alt="React Icon" class="mb-3 w-16 h-16 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">React</h3>
+                </div>
+                <div class="card flex flex-col items-center p-4">
+                    <img src="https://placehold.co/60x60/ffffff/000000?text=Tailwind" alt="Tailwind CSS Icon" class="mb-3 w-16 h-16 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Tailwind CSS</h3>
+                </div>
+                <div class="card flex flex-col items-center p-4">
+                    <img src="https://placehold.co/60x60/ffffff/000000?text=Node" alt="Node.js Icon" class="mb-3 w-16 h-16 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Node.js</h3>
+                </div>
+                <div class="card flex flex-col items-center p-4">
+                    <img src="https://placehold.co/60x60/ffffff/000000?text=Python" alt="Python Icon" class="mb-3 w-16 h-16 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Python</h3>
+                </div>
+                <div class="card flex flex-col items-center p-4">
+                    <img src="https://placehold.co/60x60/ffffff/000000?text=Git" alt="Git Icon" class="mb-3 w-16 h-16 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Git</h3>
+                </div>
+                <div class="card flex flex-col items-center p-4">
+                    <img src="https://placehold.co/60x60/ffffff/000000?text=SQL" alt="SQL Icon" class="mb-3 w-16 h-16 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">SQL</h3>
+                </div>
+                <div class="card flex flex-col items-center p-4">
+                    <img src="https://placehold.co/60x60/ffffff/000000?text=Cloud" alt="Cloud Icon" class="mb-3 w-16 h-16 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Cloud Platforms</h3>
+                </div>
+                <!-- Add more skill cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-white rounded-xl shadow-lg my-12">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-8">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="card">
+                    <div class="project-image-container mb-4">
+                        <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Project+1" alt="Project 1 Screenshot" class="project-image">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title One</h3>
+                    <p class="text-gray-700 mb-4">A brief description of Project One, highlighting its purpose and key features. This project showcases my skills in [mention technologies].</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">React</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Node.js</span>
+                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">MongoDB</span>
+                    </div>
+                    <div class="flex justify-start space-x-4">
+                        <a href="#" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium transition duration-300 flex items-center">
+                            Live Demo
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                        <a href="#" target="_blank" class="text-gray-600 hover:text-gray-800 font-medium transition duration-300 flex items-center">
+                            GitHub
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="card">
+                    <div class="project-image-container mb-4">
+                        <img src="https://placehold.co/600x400/818cf8/ffffff?text=Project+2" alt="Project 2 Screenshot" class="project-image">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title Two</h3>
+                    <p class="text-gray-700 mb-4">A brief description of Project Two, highlighting its purpose and key features. This project demonstrates my proficiency in [mention technologies].</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Vue.js</span>
+                        <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Firebase</span>
+                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Tailwind CSS</span>
+                    </div>
+                    <div class="flex justify-start space-x-4">
+                        <a href="#" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium transition duration-300 flex items-center">
+                            Live Demo
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                        <a href="#" target="_blank" class="text-gray-600 hover:text-gray-800 font-medium transition duration-300 flex items-center">
+                            GitHub
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="card">
+                    <div class="project-image-container mb-4">
+                        <img src="https://placehold.co/600x400/f0abfc/ffffff?text=Project+3" alt="Project 3 Screenshot" class="project-image">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title Three</h3>
+                    <p class="text-gray-700 mb-4">A brief description of Project Three, highlighting its purpose and key features. This project highlights my expertise in [mention technologies].</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                        <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Django</span>
+                        <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full">PostgreSQL</span>
+                    </div>
+                    <div class="flex justify-start space-x-4">
+                        <a href="#" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium transition duration-300 flex items-center">
+                            Live Demo
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                        <a href="#" target="_blank" class="text-gray-600 hover:text-gray-800 font-medium transition duration-300 flex items-center">
+                            GitHub
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-blue-50 rounded-xl shadow-lg my-12">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-8">Get in Touch</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                Have a question or want to collaborate on a project? Feel free to reach out using the form below or connect with me on social media.
+            </p>
+            <div class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-md">
+                <form id="contact-form" action="#" method="POST">
+                    <div class="mb-5 text-left">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-5 text-left">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="mb-6 text-left">
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Send Message</button>
+                    <div id="form-message" class="mt-4 text-center text-sm font-medium"></div>
+                </form>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Connect with me</h3>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-gray-600 hover:text-blue-700 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" class="text-gray-600 hover:text-gray-900 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.47.087.683-.233.683-.518 0-.256-.007-1.04-.011-2.04c-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.618.069-.606.069-.606 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.089 2.91.833.091-.647.35-1.089.636-1.338-2.22-.253-4.555-1.113-4.555-4.953 0-1.096.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.025 2.747-1.025.546 1.379.202 2.398.099 2.65.64.7 1.028 1.592 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .288.213.608.689.504C21.137 20.19 24 16.425 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                    <!-- Add more social media links as needed (e.g., Twitter, Instagram) -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 text-center rounded-t-3xl shadow-inner">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-4">&copy; <span id="current-year"></span> Your Name. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">About</a>
+                <a href="#projects" class="text-gray-300 hover:text-white transition duration-300">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+            </div>
+            <p class="text-gray-500 text-sm">Designed and developed with ❤️</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu after clicking a link
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Handle contact form submission (client-side only for static site)
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // In a real application, you would send this data to a backend service (e.g., Firebase Functions, Formspree, Netlify Forms)
+            // For this static site, we'll just simulate a success message.
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            console.log('Form Submitted:', { name, email, message });
+
+            formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
+            formMessage.classList.remove('text-red-600');
+            formMessage.classList.add('text-green-600');
+            contactForm.reset(); // Clear the form
+
+            // You could also add a temporary loading state or disable the button
+            // setTimeout(() => {
+            //     formMessage.textContent = ''; // Clear message after a few seconds
+            // }, 5000);
+        });
+    </script>
+</body>
+</html>
